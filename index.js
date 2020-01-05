@@ -2,12 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const config = require('./DB.js');
 require('./models/User');
 const app = express();
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb+srv://root:toor@cluster0-gjn0o.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true }).then(
+mongoose.connect( config.DB, { useNewUrlParser: true }).then(
     () => {console.log(`Database is connected`) },
     err => { console.log('Can not connect to the database'+ err)}
   );
