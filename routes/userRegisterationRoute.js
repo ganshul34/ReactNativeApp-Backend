@@ -40,16 +40,23 @@ module.exports = (app) => {
 		
 	});
 
-  app.delete(`/api/user/:id`, async (req, res) => {
-   
+  app.delete(`/api/user/:_id`, async (req, res) => {
+	  try {
 		const { _id} = req.params;
+		console.log(req)
 
-	let user = await User.findByIdAndRemove(_id);
-	 console.log(user);
+		let user = await User.findByIdAndRemove(_id);
+		console.log(user);
 
-    return res.status(202).send({
-      user
-    })
+		return res.status(202).send({
+			message: 'SuccessfullyDeleted',
+			user
+		});
+	  } catch (error) {
+		  console.log(error)
+	  }
+   
+		
 	
 
   });
