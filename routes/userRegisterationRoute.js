@@ -41,19 +41,16 @@ module.exports = (app) => {
 	});
 
   app.delete(`/api/user/:id`, async (req, res) => {
-    try {
+   
 		const { _id} = req.params;
 
-	let user = await User.findByIdAndDelete(_id);
+	let user = await User.findByIdAndRemove(_id);
 	 console.log(user);
 
     return res.status(202).send({
       user
     })
-	} catch (error) {
-		console.log(error);
-		
-	}
+	
 
   });
 
