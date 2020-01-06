@@ -27,7 +27,7 @@ Your app should now be running on [localhost: 7000](http://localhost:7000/).
 ### `mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[database][?options]]` 
 ```
 
-Place the above code in DB file in api directory
+Place the above code in DB file in main directory
 
 Replace the username and password with the credentials generated on the cloud
 
